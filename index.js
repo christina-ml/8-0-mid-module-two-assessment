@@ -166,7 +166,38 @@ function filterByGenre(movies, genre) {
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear(movies, year) {}
+  // function theYear(movies){
+  //   for (let movie of movies){
+  //     let releasedYear = movie.released.split(' ');
+  //     // console.log(releasedYear) //> [ '21', 'Jun', '2019' ]
+  //     let actualYear = releasedYear[2];
+  //     // console.log(actualYear); //> 2019 2015 2017 2018 2016 2010 2015 1994 1941 1996
+  //     return actualYear;
+  //   }
+  // }
+
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  if (!movies.length) {
+    throw "error - the movie array is empty."
+  }
+
+  let allMoviesReleasedAtOrBeforeYear = movies.filter((movie) => {
+    let theReleasedYear = movie.released.split(' ')[2]; //> 2019 2015 2017 2018 2016 2010 2015 1994 1941 1996
+    if (theReleasedYear <= year) {
+      return theReleasedYear;
+    }
+  })
+  return allMoviesReleasedAtOrBeforeYear;
+}
+// getAllMoviesReleasedAtOrBeforeYear(exampleMovies, 2019) // test function
+
+  // for (let movie of movies){
+  //   let releasedYear = movie.released;
+  // }
+
+  // if (releasedYear <= year) {
+  // }
+
 
 /**
  * getRottenTomatoesScoreByMovie()
