@@ -92,6 +92,17 @@ function checkIfAnyMovieHasRating(movies, rating = "G") {
     };
  */
 function findById(movies, id) {
+  if (!movies.length){
+    throw "Error - `movies` array is empty."
+  }
+
+  let result = movies.find((movie) => {
+    if (movie.imdbID === id) {
+      return movie;
+    }
+
+  })
+  return result || null;
 
 }
 
